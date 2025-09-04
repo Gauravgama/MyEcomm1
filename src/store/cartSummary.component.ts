@@ -7,5 +7,5 @@ import { Cart } from '../app/model/cart.model';
   standalone: false,
 })
 export class CartSummaryComponent {
-  constructor(public cart:Cart) {}
+  constructor(public cart: Cart) {}
 }

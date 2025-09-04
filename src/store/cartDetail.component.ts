@@ -4,10 +4,8 @@ import { Cart } from '../app/model/cart.model';
 @Component({
   selector: 'cart-detail',
   templateUrl: 'cartDetail.component.html',
-  standalone: false
+  standalone: false,
 })
-
 export class CartDetail {
-  constructor(public cart:Cart) { }
-
+  constructor(public cart: Cart) {}
 }

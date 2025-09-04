@@ -4,11 +4,13 @@ import { Order } from "./order.model";
 import { RestDataSource } from "./rest.datasource";
 
 @Injectable()
-export class OrderRepository{
-  private  orders: Order[] = [];
-  constructor(private datasource:RestDataSource){}
+export class OrderRepository {
+  private orders: Order[] = [];
 
-  // saveOrder(order:Order){
-    // return this.datasource.saveOrder(order)
-  // }
+  constructor(private dataSource: RestDataSource) {}
+
+  saveOrder(order: Order) {
+    return this.dataSource.saveOrder(order);
+  }
 }
+

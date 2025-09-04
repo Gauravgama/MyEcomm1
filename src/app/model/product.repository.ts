@@ -4,24 +4,29 @@ import { StaticDataSource } from "./static.datasource";
 import { RestDataSource } from "./rest.datasource";
 
 @Injectable()
-export class PRODUCTREPOSITORY{
-    private categories: any[] = [];
-    private products: Product[] = [];
+export class ProductRepository {
+  private products: Product[] = []; // 15 objects   -- state aware ? yes
+  private categories: any[] = []; // 15 strings     -- state aware ?  yes
 
-    constructor(private datasource: RestDataSource) {
-      this.datasource.getProducts().subscribe((data) => {
+  constructor(private datasource: RestDataSource) {
+    this.datasource.getProducts().subscribe((data) => {
       this.products = data;
-      this.categories = data.map((p) => p.category)
-      .filter((c, index, array) => array.indexOf(c) == index)
+      this.categories = data
+        .map((p) => p.category)
+        .filter((c, index, array) => array.indexOf(c) == index)
         .sort();
     });
   }
 
-  getProducts(category:string):Product[]{
-    return this.products.filter((product) => product.category == category); //auto fire when state changes
+  getProducts(category: string = 'undefined'): Product[] {
+    // auto fire
+    return this.products.filter(
+      (p) => category == 'undefined' || category == p.category
+    );
   }
 
-  getCategories():any[]{
-    return this.categories; //auto fire when state changes
+  getCategories(): any[] {
+    // auto fire
+    return this.categories;
   }
 }

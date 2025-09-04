@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
 import { Order } from '../app/model/order.model';
 
+
 @Component({
   selector: 'checkout',
   templateUrl: 'checkOut.component.html',
@@ -17,5 +18,16 @@ export class CheckOut {
     // order = cart service data + form data
   }
 
-  submitOrder() {}
+  submitOrder() {
+    // post localhost:3500/orders , order
+
+    this.repository
+      .saveOrder(this.order)
+
+      .subscribe((order) => {
+        this.order.clear();
+        this.orderSent = true;
+        this.submitted = false;
+      });
+  }
 }

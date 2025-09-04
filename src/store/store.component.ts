@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PRODUCTREPOSITORY } from '../app/model/product.repository';
+import { ProductRepository } from '../app/model/product.repository';
 import { Product } from '../app/model/product.model';
 import { Cart } from '../app/model/cart.model';
 import { Router } from '@angular/router';
@@ -7,19 +7,21 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'store',
   templateUrl: 'store.component.html',
-  standalone:false
+  standalone: false,
 })
-
 export class StoreComponent {
-  public selectedCategory = 'undefined'; // 'Category 1'  ---- 'undefined'
-  public productsPerPage = 4; // event driven
-  public selectedPage = 1; // 2
+  public selectedCategory = 'undefined';
+  public productsPerPage = 4;
+  public selectedPage = 1;
 
-  constructor( private repository: PRODUCTREPOSITORY, private cart:Cart, private router:Router) {
+  // register this
+  constructor(
+    private repository: ProductRepository,
+    private cart: Cart,
+    private router: Router
+  ) {}
 
-   }
-
-   get products() {
+  get products() {
     let pageIndex = (this.selectedPage - 1) * this.productsPerPage;
     return this.repository
       .getProducts(this.selectedCategory)
@@ -55,7 +57,13 @@ export class StoreComponent {
   }
 
   addProductToCart(product: Product) {
-    this.cart.addLine(product)
-    this.router.navigateByUrl('/cart') //Hashbang
+    //product
+    //console.log(product);
+    this.cart.addLine(product);
+
+    // Hashbang:
+    this.router.navigateByUrl('/cart');
   }
 }
+
+// ECMAScript version 5 - Accessor property - auto getter & auto setter

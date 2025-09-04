@@ -6,33 +6,46 @@ import { RouterModule } from '@angular/router';
 import { StoreComponent } from '../store/store.component';
 import { CartDetail } from '../store/cartDetail.component';
 import { StoreFirstGuard } from './store.FirstGuard';
+import { CheckOut } from '../store/checkout.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    // register components,directives & pipes     -- non services
+    AppComponent,
   ],
-  imports: [//wider scope / blocking sccript /dependency module
-    BrowserModule, StoreModule, RouterModule.forRoot([
+  imports: [
+    // blocking script / preloading / dependency modules/ helper or utility modules / wider scopes
+    BrowserModule,
+    StoreModule,
+    RouterModule.forRoot([
       {
         path: 'store',
         canActivate: [StoreFirstGuard], // route guard - non first navigation
         component: StoreComponent,
       },
       {
-        path: 'cart',
-        canActivate: [StoreFirstGuard],
+        path: 'cart', // tracks /subscribe's to the BrowserURL state -- localhost:3001/cart
+        canActivate: [StoreFirstGuard], // route guard - non first navigation
         component: CartDetail,
       },
+
       {
-        path: '**',
-        redirectTo: '/store',
+        path: 'checkout', // tracks /subscribe's to the BrowserURL state -- localhost:3001/cart
+        canActivate: [StoreFirstGuard], // route guard - non first navigation
+        component: CheckOut,
+      },
+
+      {
+        path: '**', // default path
+        redirectTo: '/store', // state change in the BrowserURL - HashBang
       },
     ]),
   ],
-  providers: [StoreFirstGuard], //register services
-  bootstrap: [AppComponent]  // load root component
+  providers: [StoreFirstGuard], // register services
+  bootstrap: [AppComponent], // load root component
 })
-export class AppModule { }
+export class AppModule {}
 
 // root level entities do not directly try to connect to model level entity (services - data)
-//root level entities should not register feature level entitites(component, directive, pipe)
+
+// root level entities should not register feature level entities (component,directive or pipe) !

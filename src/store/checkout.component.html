@@ -1,46 +1,56 @@
-<!-- <div class="container-fluid"> -->
-<!-- <div class="row">
-    <div class="bg-dark text-white p-2">
-     </div> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="bg-dark text-white p-2"></div>
 
-<!-- <div *ngIf="orderSent" class="m-2 text-center">
-  <h2>Thanks!</h2>
-  <p>Thanks for placing your order.</p>
-  <p>We'll ship your goods as soon as possible.</p>
-  <button class="btn btn-primary" routerLink="/store">Return to Store</button>
-</div> -->
+    <div *ngIf="orderSent" class="m-2 text-center">
+      <h2>Thanks!</h2>
+      <p>Thanks for placing your order.</p>
+      <p>We'll ship your goods as soon as possible.</p>
+      <button class="btn btn-primary" routerLink="/store">
+        Return to Store
+      </button>
+    </div>
 
-<form
-  *ngIf="!orderSent"
-  (ngSubmit)="submitOrder()"
-  class="m-2"
->
-  <div class="form-group">
-    <label>Name</label>
-    <input class="form-control" name="name" [(ngModel)]="order.name" />
+    <form *ngIf="!orderSent" (ngSubmit)="submitOrder()" class="m-2">
+      <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" [(ngModel)]="order.name" />
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input
+          class="form-control"
+          name="address"
+          [(ngModel)]="order.address"
+        />
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input class="form-control" name="city" [(ngModel)]="order.city" />
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input class="form-control" name="state" [(ngModel)]="order.state" />
+      </div>
+      <div class="form-group">
+        <label>Zip/Postal Code</label>
+        <input class="form-control" name="zip" [(ngModel)]="order.zip" />
+      </div>
+      <div class="form-group">
+        <label>Country</label>
+        <input
+          class="form-control"
+          #c
+          name="country"
+          [(ngModel)]="order.country"
+        />
+      </div>
+      <div class="text-center">
+        <button class="btn btn-secondary m-1" routerLink="/cart">Back</button>
+        <button class="btn btn-primary m-1" type="submit">
+          Complete Order
+        </button>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label>Address</label>
-    <input class="form-control" name="address" [(ngModel)]="order.address" />
-  </div>
-  <div class="form-group">
-    <label>City</label>
-    <input class="form-control" name="city" [(ngModel)]="order.city" />
-  </div>
-  <div class="form-group">
-    <label>State</label>
-    <input class="form-control" name="state" [(ngModel)]="order.state" />
-  </div>
-  <div class="form-group">
-    <label>Zip/Postal Code</label>
-    <input class="form-control" name="zip" [(ngModel)]="order.zip" />
-  </div>
-  <div class="form-group">
-    <label>Country</label>
-    <input class="form-control" #c name="country" [(ngModel)]="order.country" />
-  </div>
-  <div class="text-center">
-    <button class="btn btn-secondary m-1" routerLink="/cart">Back</button>
-    <button class="btn btn-primary m-1" type="submit">Complete Order</button>
-  </div>
-</form>
+</div>
