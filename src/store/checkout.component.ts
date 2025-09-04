@@ -18,16 +18,18 @@ export class CheckOut {
     // order = cart service data + form data
   }
 
-  submitOrder() {
+  submitOrder(form:NgForm) {
     // post localhost:3500/orders , order
+    this.submitted=true;
+    if(form.valid){
+      this.repository
+        .saveOrder(this.order)
 
-    this.repository
-      .saveOrder(this.order)
-
-      .subscribe((order) => {
-        this.order.clear();
-        this.orderSent = true;
-        this.submitted = false;
-      });
+        .subscribe((order) => {
+          this.order.clear();
+          this.orderSent = true;
+          this.submitted = false;
+        });
+    }
   }
 }
