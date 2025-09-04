@@ -14,11 +14,8 @@ export class CheckOut {
   submitted: boolean = false;
 
   constructor(private repository: OrderRepository, public order: Order) {
-    // order = cart service
-    //this.order - bunch of records
+    // order = cart service data + form data
   }
 
-  submitOrder(form: NgForm) {}
-
-
+  submitOrder() {}
 }
