@@ -11,10 +11,21 @@
       </button>
     </div>
 
-    <form *ngIf="!orderSent" (ngSubmit)="submitOrder()" class="m-2">
+    <form
+      *ngIf="!orderSent"
+      (ngSubmit)="submitOrder()"
+      class="m-2"
+      novalidate
+      #f1="ngForm"
+    >
       <div class="form-group">
         <label>Name</label>
-        <input class="form-control" name="name" [(ngModel)]="order.name" />
+        <input
+          class="form-control"
+          name="name"
+          [(ngModel)]="order.name"
+          #name="ngModel"
+        />
       </div>
       <div class="form-group">
         <label>Address</label>
@@ -22,27 +33,48 @@
           class="form-control"
           name="address"
           [(ngModel)]="order.address"
+          required
+          #address="ngModel"
         />
       </div>
       <div class="form-group">
         <label>City</label>
-        <input class="form-control" name="city" [(ngModel)]="order.city" />
+        <input
+          class="form-control"
+          name="city"
+          [(ngModel)]="order.city"
+          required
+          #city="ngModel"
+        />
       </div>
       <div class="form-group">
         <label>State</label>
-        <input class="form-control" name="state" [(ngModel)]="order.state" />
+        <input
+          class="form-control"
+          name="state"
+          [(ngModel)]="order.state"
+          required
+          #state="ngModel"
+        />
       </div>
       <div class="form-group">
         <label>Zip/Postal Code</label>
-        <input class="form-control" name="zip" [(ngModel)]="order.zip" />
+        <input
+          class="form-control"
+          name="zip"
+          [(ngModel)]="order.zip"
+          required
+          #zip="ngModel"
+        />
       </div>
       <div class="form-group">
         <label>Country</label>
         <input
           class="form-control"
-          #c
           name="country"
           [(ngModel)]="order.country"
+          required
+          #country="ngModel"
         />
       </div>
       <div class="text-center">
