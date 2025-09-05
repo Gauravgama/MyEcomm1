@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Order } from "./order.model";
-import { RestDataSource } from "./rest.datasource";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Order } from './order.model';
+import { RestDataSource } from './rest.datasource';
 
 @Injectable()
 export class OrderRepository {
@@ -13,4 +13,3 @@ export class OrderRepository {
     return this.dataSource.saveOrder(order);
   }
 }
-

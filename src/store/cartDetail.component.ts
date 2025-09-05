@@ -1,5 +1,5 @@
+import { Cart } from './../app/model/cart.model';
 import { Component } from '@angular/core';
-import { Cart } from '../app/model/cart.model';
 
 @Component({
   selector: 'cart-detail',

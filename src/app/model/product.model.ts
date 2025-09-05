@@ -10,4 +10,4 @@ export class Product {
 }
 
 
-//let inst1=new Product() will not give error if used ? otherwise we need to provide the arguments
+

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { ProductRepository } from '../app/model/product.repository';
-import { Product } from '../app/model/product.model';
-import { Cart } from '../app/model/cart.model';
+import { ProductRepository } from './../app/model/product.repository';
+import { Product } from './../app/model/product.model';
+import { Cart } from './../app/model/cart.model';
 import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'store',

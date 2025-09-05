@@ -1,18 +1,16 @@
-import { NgModule } from '@angular/core';
-
+import { ModelModule } from './../app/model/model.module';
+import { RouterModule } from '@angular/router';
+import { CartDetail } from './cartDetail.component';
+import { CartSummaryComponent } from './cartSummary.component';
 import { StoreComponent } from './store.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { ModelModule } from '../app/model/model.module';
-import { CartSummaryComponent } from './cartSummary.component';
-import { CartDetail } from './cartDetail.component';
-import { CheckOut } from './checkout.component';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CheckOut } from './checkout.component';
 
 @NgModule({
   imports: [BrowserModule, ModelModule, RouterModule, FormsModule],
-  exports:[StoreComponent,CartDetail, CheckOut], //shareable to other angular module
-  declarations: [StoreComponent, CartSummaryComponent, CartDetail, CheckOut], //private to this angular module  --Register & Load this component
-  providers: [],
+  declarations: [StoreComponent, CartSummaryComponent, CartDetail, CheckOut], // 'Private to this Angular module' -- 'register & load' this component
+  exports: [StoreComponent, CartDetail, CheckOut], // 'sharable to other Angular modules'
 })
-export class StoreModule { }
+export class StoreModule {}

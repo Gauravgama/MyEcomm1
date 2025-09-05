@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { StaticDataSource } from './static.datasource';
-import { ProductRepository} from './product.repository';
-import { RestDataSource } from './rest.datasource';
-import { HttpClientModule } from '@angular/common/http';
-import { Cart } from './cart.model';
-import { Order } from './order.model';
+import { StoreComponent } from './../../store/store.component';
 import { OrderRepository } from './order.repository';
+import { Order } from './order.model';
+import { Cart } from './cart.model';
+import { RestDataSource } from './rest.datasource';
+import { ProductRepository } from './product.repository';
+import { StaticDataSource } from './static.datasource';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [HttpClientModule],
